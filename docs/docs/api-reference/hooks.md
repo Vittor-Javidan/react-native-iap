@@ -34,7 +34,7 @@ const App = () => {
     products,
     promotedProductsIOS,
     subscriptions,
-    purchaseHistories,
+    purchaseHistory,
     availablePurchases,
     currentPurchase,
     currentPurchaseError,
@@ -43,7 +43,7 @@ const App = () => {
     getProducts,
     getSubscriptions,
     getAvailablePurchases,
-    getPurchaseHistories,
+    getPurchaseHistory,
   } = useIAP();
 
   const handlePurchase = async (sku: string) => {
@@ -62,7 +62,7 @@ const App = () => {
     <>
       <Button
         title="Get the products"
-        onPress={getProducts(['com.example.consumable'])}
+        onPress={getProducts({ skus: ['product.id'] })}
       />
 
       {products.map((product) => (
